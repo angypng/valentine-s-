@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Be My Valentine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             background: linear-gradient(to bottom, #ffe6f2, #ffb6c1);
             color: #600c30;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Poppins', sans-serif;
             text-align: center;
             overflow: hidden;
             position: relative;
@@ -25,16 +26,17 @@
 
         .heart {
             position: absolute;
-            color: #ff69b4;
-            font-size: 24px;
-            opacity: 0.5;
-            animation: float 10s infinite ease-in-out;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 105, 180, 0.3);
+            border-radius: 50%;
+            animation: floatHearts 10s infinite ease-in-out;
         }
 
-        @keyframes float {
-            0% { transform: translateY(0px); opacity: 0.5; }
-            50% { transform: translateY(-50px); opacity: 1; }
-            100% { transform: translateY(-100px); opacity: 0.5; }
+        @keyframes floatHearts {
+            0% { transform: translateY(0px) scale(1); opacity: 0.7; }
+            50% { transform: translateY(-50px) scale(1.1); opacity: 1; }
+            100% { transform: translateY(-100px) scale(1); opacity: 0.5; }
         }
 
         .valentine-text {
@@ -123,7 +125,6 @@
             for (let i = 0; i < 10; i++) {
                 let heart = document.createElement("div");
                 heart.classList.add("heart");
-                heart.innerHTML = "❤️";
                 heart.style.left = Math.random() * 100 + "%";
                 heart.style.top = Math.random() * 100 + "%";
                 heart.style.animationDuration = Math.random() * 5 + 5 + "s";

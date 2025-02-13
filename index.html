@@ -4,135 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Be My Valentine</title>
+    
+    <!-- Linking the external CSS file -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Linking Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            background: linear-gradient(to bottom, #ffe6f2, #ffb6c1);
-            color: #600c30;
-            font-family: 'Poppins', sans-serif;
-            text-align: center;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .floating-hearts {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
-
-        .heart {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: rgba(255, 105, 180, 0.3);
-            border-radius: 50%;
-            animation: floatHearts 10s infinite ease-in-out;
-        }
-
-        @keyframes floatHearts {
-            0% { transform: translateY(0px) scale(1); opacity: 0.7; }
-            50% { transform: translateY(-50px) scale(1.1); opacity: 1; }
-            100% { transform: translateY(-100px) scale(1); opacity: 0.5; }
-        }
-
-        .valentine-text {
-            font-size: 24px;
-            margin-top: 20vh;
-            opacity: 0;
-            transition: opacity 2s ease-in-out;
-        }
-
-        .buttons {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        button {
-            font-size: 18px;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-        }
-
-        .yes-btn {
-            background-color: #ff69b4;
-            color: white;
-        }
-
-        .no-btn {
-            background-color: #999;
-            color: white;
-        }
-
-        .hidden { display: none; }
-        .fade-in { opacity: 1 !important; }
-
-        .tiny-watermark {
-            position: fixed;
-            bottom: 5px;
-            right: 5px;
-            font-size: 10px;
-            color: rgba(0, 0, 0, 0.2);
-            pointer-events: none;
-        }
-    </style>
 </head>
 <body>
     <div class="floating-hearts"></div>
     <div class="valentine-text" id="text1">Hii</div>
     <div class="valentine-text hidden" id="text2">Hello love💕 It’s the month of love...</div>
     <div class="valentine-text hidden" id="text3">…n since it’s the month of love, would u do me the honor of being my Valentine love? 💘</div>
+    
     <div class="buttons hidden" id="options">
         <button class="yes-btn" onclick="acceptValentine()">Yes 😊</button>
         <button class="no-btn" onclick="rejectValentine()">No 😢</button>
     </div>
+
     <div class="tiny-watermark">~angy</div>
 
-    <script>
-        let texts = ["text1", "text2", "text3"];
-        let index = 0;
-
-        function showText() {
-            if (index < texts.length) {
-                document.getElementById(texts[index]).classList.add("fade-in");
-                index++;
-                setTimeout(showText, 10000);
-            } else {
-                document.getElementById("options").classList.remove("hidden");
-            }
-        }
-        
-        setTimeout(showText, 1000);
-
-        function acceptValentine() {
-            alert("Yay! Happy Valentine's Day! ❤️");
-        }
-
-        function rejectValentine() {
-            alert("U sure abt tat 😞");
-            setTimeout(() => alert("Really? 😢"), 1000);
-            setTimeout(() => alert("Rukk teri band bajati main 💥"), 2000);
-        }
-
-        function createHearts() {
-            for (let i = 0; i < 10; i++) {
-                let heart = document.createElement("div");
-                heart.classList.add("heart");
-                heart.style.left = Math.random() * 100 + "%";
-                heart.style.top = Math.random() * 100 + "%";
-                heart.style.animationDuration = Math.random() * 5 + 5 + "s";
-                document.querySelector(".floating-hearts").appendChild(heart);
-            }
-        }
-
-        createHearts();
-    </script>
+    <!-- Linking the external JavaScript file -->
+    <script src="script.js" defer></script>
 </body>
 </html>

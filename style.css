@@ -39,6 +39,7 @@ button:hover {
     transform: scale(1.1);
 }
 
+/* Floating hearts */
 .heart-container {
     position: absolute;
     top: 0;
@@ -72,7 +73,7 @@ button:hover {
     animation: float 6s infinite ease-in-out;
 }
 
-/* Neon doodles behind final I LOVE YOU */
+/* Neon doodles behind final 'I LOVE YOU' */
 .neon-doodle {
     position: absolute;
     opacity: 0.1;
@@ -84,3 +85,4 @@ button:hover {
     0% { opacity: 0.1; transform: scale(1); }
     100% { opacity: 0.3; transform: scale(1.2); }
 }
+

@@ -1,32 +1,55 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const yesButton = document.querySelector(".yes");
-    const noButton = document.querySelector(".no");
-    let noClickCount = 0;
+    function showText(text, delay) {
+        setTimeout(() => {
+            const textElement = document.createElement("p");
+            textElement.textContent = text;
+            textElement.style.opacity = "0";
+            textElement.style.transition = "opacity 1.5s";
+            document.body.appendChild(textElement);
+            setTimeout(() => {
+                textElement.style.opacity = "1";
+            }, 100);
+        }, delay);
+    }
 
-    // No button click sequence
-    noButton.addEventListener("click", function () {
-        const noResponses = [
-            "U sure abt tat? 😢",
-            "Really? 🥺",
-            "Rukk teri band bajati main 💥"
-        ];
-        if (noClickCount < noResponses.length) {
-            alert(noResponses[noClickCount]);
-            noClickCount++;
-        } else {
-            noButton.style.display = "none"; // Remove "No" button after 3 clicks
-        }
-    });
+    // Text appears one by one
+    showText("Hii", 0);
+    showText("Hello love💕", 10000);  // 10 sec delay
+    showText("It’s the month of love...", 20000);  // Next text after 20 sec
+    showText("Would u do me the honor of being my Valentine? 💘", 25000);
 
-    // Yes button click sequence
-    yesButton.addEventListener("click", function () {
-        document.body.innerHTML = `
-            <h1>❤️ Happy Valentine's Day! ❤️</h1>
-            <img src="happy-dancing-cat.gif" class="cat-meme">
-            <div id="heartfelt-messages"></div>
+    // Show buttons after text
+    setTimeout(() => {
+        const buttonContainer = document.createElement("div");
+        buttonContainer.innerHTML = `
+            <button class="yes">Yes 😊</button>
+            <button class="no">No 😢</button>
         `;
-        startHeartfeltMessages();
-    });
+        document.body.appendChild(buttonContainer);
+
+        const yesButton = document.querySelector(".yes");
+        const noButton = document.querySelector(".no");
+        let noClickCount = 0;
+
+        noButton.addEventListener("click", function () {
+            const noResponses = ["U sure abt tat? 😢", "Really? 🥺", "Rukk teri band bajati main 💥"];
+            if (noClickCount < noResponses.length) {
+                alert(noResponses[noClickCount]);
+                noClickCount++;
+            } else {
+                noButton.style.display = "none"; // Remove "No" button after 3 clicks
+            }
+        });
+
+        yesButton.addEventListener("click", function () {
+            document.body.innerHTML = `
+                <h1>❤️ Happy Valentine's Day! ❤️</h1>
+                <img src="happy-dancing-cat.gif" class="cat-meme">
+                <div id="heartfelt-messages"></div>
+            `;
+            startHeartfeltMessages();
+        });
+    }, 27000); // Buttons appear after all text
 
     function startHeartfeltMessages() {
         const messages = [
@@ -80,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }, 500);
 
                 index++;
-                setTimeout(showNextMessage, 3500);
+                setTimeout(showNextMessage, 4500);
             } else {
                 setTimeout(showFinalText, 4000); // Delay before "I LOVE YOU"
             }
@@ -101,21 +124,5 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(() => {
             finalText.style.opacity = "1";
         }, 500);
-
-        // Adding subtle neon doodles behind final text
-        for (let i = 0; i < 3; i++) {
-            let doodle = document.createElement("div");
-            doodle.classList.add("neon-doodle");
-            doodle.style.width = "80px";
-            doodle.style.height = "80px";
-            doodle.style.background = "url('neon-heart.png') no-repeat center";
-            doodle.style.backgroundSize = "contain";
-            doodle.style.position = "absolute";
-            doodle.style.opacity = "0.1";
-            doodle.style.left = `${30 + i * 100}px`;
-            doodle.style.top = `${150 + i * 80}px`;
-            document.body.appendChild(doodle);
-        }
     }
 });
-

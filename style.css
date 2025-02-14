@@ -1,97 +1,78 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Amatic+SC:wght@700&family=Poppins:wght@400;600&display=swap');
-
+/* General Styling */
 body {
-    background: linear-gradient(to bottom, #ffebef, #ffd6e0);
-    color: #703d57;
-    font-family: 'Poppins', sans-serif;
-    text-align: center;
-    overflow: hidden;
-    position: relative;
-}
-
-h1 {
     font-family: 'Dancing Script', cursive;
-    font-size: 2.8rem;
-    margin-top: 20px;
+    background: linear-gradient(to bottom, #ffd6e9, #ffb6c1);
+    text-align: center;
+    color: #ff69b4; /* Ensuring all default text is visible */
 }
 
-button {
-    font-family: 'Amatic SC', cursive;
+/* Text Styling */
+.heartfelt-text {
+    color: #ff69b4; /* Soft visible pink */
     font-size: 1.8rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 10;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Button Styling */
+button {
+    font-size: 1.5rem;
     padding: 10px 20px;
+    border-radius: 10px;
     border: none;
     cursor: pointer;
-    border-radius: 12px;
-    transition: 0.3s ease;
 }
 
-button.yes {
-    background: #ff87a2;
+.yes {
+    background-color: #ff4081;
     color: white;
 }
 
-button.no {
-    background: #ccc;
-    color: black;
+.no {
+    background-color: #333;
+    color: white;
 }
 
-button:hover {
-    transform: scale(1.1);
-}
-
-/* Floating Hearts */
+/* Animated Floating Hearts */
 .heart-container {
     position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none;
+    overflow: hidden;
 }
 
 .heart {
     position: absolute;
-    background: rgba(255, 150, 200, 0.3);
+    bottom: 0;
     width: 20px;
     height: 20px;
-    border-radius: 50%;
-    animation: float 8s infinite ease-in-out;
+    background-color: #ff69b4;
+    opacity: 0.7;
+    clip-path: polygon(50% 0%, 100% 40%, 75% 100%, 25% 100%, 0% 40%);
+    animation: float 6s linear infinite;
 }
 
 @keyframes float {
-    0% { transform: translateY(100vh) scale(0.8); opacity: 1; }
-    100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+    0% {
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        transform: translateY(-300px) scale(1.1);
+    }
+    100% {
+        transform: translateY(-600px) scale(1);
+        opacity: 0;
+    }
 }
 
-/* Love Letter Animation */
-.love-letter {
-    position: absolute;
-    background: url('love-letter.png') no-repeat center;
-    background-size: contain;
-    width: 60px;
-    height: 60px;
-    animation: float 6s infinite ease-in-out;
-}
-
-/* Neon doodles behind final "I LOVE YOU" */
-.neon-doodle {
-    position: absolute;
-    opacity: 0.1;
-    filter: blur(2px);
-    animation: pulse 4s infinite alternate;
-}
-
-@keyframes pulse {
-    0% { opacity: 0.1; transform: scale(1); }
-    100% { opacity: 0.3; transform: scale(1.2); }
-}
-
-/* Heartfelt Message Styling */
-#heartfelt-messages {
-    font-family: 'Dancing Script', cursive;
-    font-size: 2rem;
-    color: #ff4081;
-    margin-top: 20px;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
+/* GIFs & Images */
+img {
+    max-width: 200px;
+    height: auto;
+    margin: 20px auto;
 }

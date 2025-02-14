@@ -39,7 +39,7 @@ button:hover {
     transform: scale(1.1);
 }
 
-/* Floating hearts animation */
+/* Floating Hearts */
 .heart-container {
     position: absolute;
     top: 0;
@@ -63,7 +63,7 @@ button:hover {
     100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
 }
 
-/* Floating love letter doodle */
+/* Love Letter Animation */
 .love-letter {
     position: absolute;
     background: url('love-letter.png') no-repeat center;
@@ -86,7 +86,12 @@ button:hover {
     100% { opacity: 0.3; transform: scale(1.2); }
 }
 
-.hidden {
-    display: none;
+/* Heartfelt Message Styling */
+#heartfelt-messages {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    color: #ff4081;
+    margin-top: 20px;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
 }
-

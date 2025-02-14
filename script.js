@@ -12,13 +12,13 @@ document.addEventListener("DOMContentLoaded", function () {
         }, delay);
     }
 
-    // Text appears one by one
+    // Sequential Text Appearance
     showText("Hii", 0);
-    showText("Hello love💕", 10000);  // 10 sec delay
-    showText("It’s the month of love...", 20000);  // Next text after 20 sec
+    showText("Hello love💕", 10000);  
+    showText("It’s the month of love...", 20000);  
     showText("Would u do me the honor of being my Valentine? 💘", 25000);
 
-    // Show buttons after text
+    // Show Buttons after 27s
     setTimeout(() => {
         const buttonContainer = document.createElement("div");
         buttonContainer.innerHTML = `
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
             `;
             startHeartfeltMessages();
         });
-    }, 27000); // Buttons appear after all text
+    }, 27000);
 
     function startHeartfeltMessages() {
         const messages = [
@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 index++;
                 setTimeout(showNextMessage, 4500);
             } else {
-                setTimeout(showFinalText, 4000); // Delay before "I LOVE YOU"
+                setTimeout(showFinalText, 4000);
             }
         }
 
@@ -126,3 +126,4 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 500);
     }
 });
+    

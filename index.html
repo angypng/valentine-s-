@@ -3,28 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Be My Valentine</title>
-    
-    <!-- Linking the external CSS file -->
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Linking Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+    <title>Be My Valentine? 💘</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="floating-hearts"></div>
-    <div class="valentine-text" id="text1">Hii</div>
-    <div class="valentine-text hidden" id="text2">Hello love💕 It’s the month of love...</div>
-    <div class="valentine-text hidden" id="text3">…n since it’s the month of love, would u do me the honor of being my Valentine love? 💘</div>
-    
-    <div class="buttons hidden" id="options">
-        <button class="yes-btn" onclick="acceptValentine()">Yes 😊</button>
-        <button class="no-btn" onclick="rejectValentine()">No 😢</button>
+    <div class="container">
+        <h1 id="main-text">Hii</h1>
+        <div id="message-box" class="hidden"></div>
+        <div id="buttons" class="hidden">
+            <button class="yes" onclick="handleYes()">Yes 💖</button>
+            <button class="no" onclick="handleNo()">No 😭</button>
+        </div>
     </div>
 
-    <div class="tiny-watermark">~angy</div>
+    <div class="heart-container"></div>
 
-    <!-- Linking the external JavaScript file -->
-    <script src="script.js" defer></script>
+    <script src="script.js"></script>
 </body>
 </html>

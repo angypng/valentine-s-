@@ -13,7 +13,8 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function handleYes() {
-    document.body.innerHTML = `<h1>YAY! 💖</h1> 
+    document.getElementById("main-content").innerHTML = `
+        <h1>YAY! 💖</h1> 
         <img src="images/happy-cat.jpg" alt="Happy Cat"> 
         <div id="heartfelt-text"></div>`;
 
@@ -34,7 +35,7 @@ function handleYes() {
             setTimeout(showMessage, 6000);
         } else {
             setTimeout(() => {
-                document.body.innerHTML += `<h2>I LOVE YOU 💖</h2>`;
+                document.getElementById("heartfelt-text").innerHTML += `<h2>I LOVE YOU 💖</h2>`;
             }, 4000);
         }
     }
@@ -53,12 +54,22 @@ function handleNo() {
     if (noCount < noMessages.length) {
         let msg = noMessages[noCount];
         document.getElementById("main-text").innerHTML = msg.text;
+        
+        let existingImg = document.getElementById("no-image");
         if (msg.img) {
-            document.body.innerHTML += `<img src="${msg.img}" alt="Crying Cat">`;
+            if (!existingImg) {
+                let img = document.createElement("img");
+                img.id = "no-image"; 
+                img.src = msg.img;
+                img.alt = "Crying Cat";
+                document.getElementById("main-content").appendChild(img);
+            } else {
+                existingImg.src = msg.img;
+            }
         }
         localStorage.setItem("noCount", noCount + 1);
     } else {
-        document.querySelector(".no").style.display = "none"; // Remove "No" button
+        document.getElementById("buttons").style.display = "none"; // Hide buttons
     }
 }
 

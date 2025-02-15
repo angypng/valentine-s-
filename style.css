@@ -65,3 +65,18 @@ button {
     }
 }
 
+/* Added styles for cat images */
+.cat-img {
+    width: 2cm;
+    height: 1.5cm;
+    display: block;
+    margin: 10px auto;
+}
+
+/* Added styles for the final cute image */
+.extra-img {
+    width: 3cm;
+    height: 3cm;
+    display: block;
+    margin: 20px auto;
+}

@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function handleYes() {
     document.body.innerHTML = `<h1>YAY! 💖</h1> 
-        <img src="https://i.postimg.cc/X7XJzXCg/b9ed18688725bda45acd4790177d5dc3.jpg" class="cat-img happy-cat" alt="Happy Cat"> 
+        <img src="images/happy-cat.jpg" alt="Happy Cat"> 
         <div id="heartfelt-text"></div>`;
 
     let messages = [
@@ -35,7 +35,6 @@ function handleYes() {
         } else {
             setTimeout(() => {
                 document.body.innerHTML += `<h2>I LOVE YOU 💖</h2>`;
-                document.body.innerHTML += `<img src="https://i.postimg.cc/QtXNkMD1/c853efb8ecd009025a02db6450de1f19.jpg" class="extra-img" alt="Final Cute Image">`;
             }, 4000);
         }
     }
@@ -45,8 +44,8 @@ function handleYes() {
 function handleNo() {
     let noMessages = [
         { text: "U sure abt tat? 😢", img: "" },
-        { text: "Really? 😭", img: "https://i.postimg.cc/52TF3LKv/4cd83c2b550f6a1e5bb592dd3a7349dd.jpg" },
-        { text: "Rukk teri band bajati main 💥", img: "https://i.postimg.cc/52TF3LKv/4cd83c2b550f6a1e5bb592dd3a7349dd.jpg" }
+        { text: "Really? 😭", img: "images/crying-cat.jpg" },
+        { text: "Rukk teri band bajati main 💥", img: "images/crying-cat.jpg" }
     ];
 
     let noCount = parseInt(localStorage.getItem("noCount")) || 0;
@@ -55,7 +54,7 @@ function handleNo() {
         let msg = noMessages[noCount];
         document.getElementById("main-text").innerHTML = msg.text;
         if (msg.img) {
-            document.body.innerHTML += `<img src="${msg.img}" class="cat-img sad-cat" alt="Crying Cat">`;
+            document.body.innerHTML += `<img src="${msg.img}" alt="Crying Cat">`;
         }
         localStorage.setItem("noCount", noCount + 1);
     } else {
